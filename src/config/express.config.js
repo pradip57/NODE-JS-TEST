@@ -1,7 +1,9 @@
 const express = require('express')
+const mainRouter = require('./routing.config')
 
 const app = express()
 
+app.use(mainRouter)
 
 app.use((req,res,next)=>{
 
