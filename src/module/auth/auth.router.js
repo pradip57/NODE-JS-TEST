@@ -1,9 +1,11 @@
+const { bodyValidator } = require('../../middleware/validator.middleware')
 const authCtrl = require('./auth.controller')
+const { registerDTO } = require('./auth.dto')
 
 const authRouter = require('express').Router()
 
 
-authRouter.post('/register',authCtrl.register)
+authRouter.post('/register',bodyValidator(registerDTO),authCtrl.register)
 
 
 
