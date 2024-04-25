@@ -3,6 +3,11 @@ const express = require('express')
 const app = express()
 
 
+app.use((req,res,next)=>{
+
+    next({codeStatus:404,message:"Not found"})
+})
+
 app.use((error,req,res,next)=>{
 
     const codeStatus = error.code || 500
