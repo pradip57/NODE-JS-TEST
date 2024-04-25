@@ -8,6 +8,6 @@ const bodyValidator = (schema) => {
       next(exception);
     }
   };
-
-  module.exports = { bodyValidator };
 };
+
+module.exports = { bodyValidator };
