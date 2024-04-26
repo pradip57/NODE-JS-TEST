@@ -29,4 +29,4 @@ const uploader = multer({
   storage: myStorage,
 });
 
-module.exports = uploader;
+module.exports = {uploader,setPath};
