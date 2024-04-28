@@ -1,3 +1,5 @@
+const bcrypt = require('bcryptjs')
+
 class AuthController {
 
  register = (req,res,next) => {
@@ -5,6 +7,10 @@ class AuthController {
     try{
 
         const payload = req.body
+
+        payload.password = bcrypt.hashSync(payload.password,10)
+        payload.status = "inactive"
+
 
         res.json({
             result:payload,

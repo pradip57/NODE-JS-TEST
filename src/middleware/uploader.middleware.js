@@ -19,9 +19,8 @@ const myStorage = multer.diskStorage({
 
   filename: (req, file, cb) => {
     const ext = file.originalname.split(".").pop();
-    const filename =
-      Date.now + "-" + Math.ceil(Math.random() * 100) + "." + ext;
-      cb(null,filename)
+    const filename = Date.now() + "-" + Math.ceil(Math.random() * 100) + "." + ext;
+    cb(null, filename);
   },
 });
 
@@ -29,4 +28,4 @@ const uploader = multer({
   storage: myStorage,
 });
 
-module.exports = {uploader,setPath};
+module.exports = { uploader, setPath };
