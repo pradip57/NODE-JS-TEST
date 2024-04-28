@@ -6,11 +6,11 @@ class MailServices {
   constructor() {
     try {
       this.transport = nodemailer.createTransport({
-        host: SMTP_HOST,
-        port: SMTP_PORT,
+        host: process.env.SMTP_HOST,
+        port: process.env.SMTP_PORT,
         auth: {
-          user: SMTP_USERNAME,
-          pass: SMTP_PASSWORD,
+          user: process.env.SMTP_USERNAME,
+          pass: process.env.SMTP_PASSWORD,
         },
       });
     } catch (exception) {
@@ -27,6 +27,8 @@ class MailServices {
         html: message,
         attachments: attachments,
       });
+      console.log(mailStatus);
+      return mailStatus;
     } catch (exception) {
       console.log(exception);
       throw new Error("Error sending mail");
