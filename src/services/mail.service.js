@@ -22,7 +22,7 @@ class MailServices {
     try {
       const mailStatus = await this.transport.sendMail({
         to: to,
-        from: SMTP_FROM,
+        from: process.env.SMTP_FROM,
         subject: subject,
         html: message,
         attachments: attachments,
